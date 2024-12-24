@@ -1,0 +1,10 @@
+reddit_bot/
+├── src/
+│   ├── __init__.py
+│   └── bot.py
+├── config/
+│   └── config.yaml
+├── requirements.txt
+├── .gitignore
+├── README.md
+└── LICENSE 
