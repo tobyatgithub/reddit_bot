@@ -2,13 +2,12 @@ reddit_bot/
 ├── src/
 │   ├── __init__.py
 │   ├── bot.py
+│   ├── migrate_to_supabase.py
 │   ├── storage/
 │   │   ├── __init__.py
 │   │   ├── base.py        # Abstract base class for storage
-│   │   └── json_storage.py # JSON implementation
-│   └── utils/
-│       ├── __init__.py
-│       └── data_cleaner.py # For future data cleaning
+│   │   ├── json_storage.py # JSON implementation
+│   │   └── supabase_storage.py
 ├── data/                   # Directory for JSON files
 │   └── .gitkeep
 ├── config/

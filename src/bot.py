@@ -5,13 +5,14 @@ import prawcore
 import yaml
 
 from storage.json_storage import JsonStorage
+from storage.supabase_storage import SupabaseStorage
 
 
 class RedditBot:
     def __init__(self, config_path: str = "../config/config.yaml"):
         self.config = self._load_config(config_path)
         self.reddit = self._initialize_reddit()
-        self.storage = JsonStorage()  # Initialize storage
+        self.storage = self._initialize_storage()
         self._test_authentication()  # Add authentication test
 
     def _load_config(self, config_path: str) -> dict:
@@ -219,6 +220,14 @@ class RedditBot:
         )
         self.storage.save_posts(posts)
         return posts
+
+    def _initialize_storage(self):
+        """Initialize storage based on configuration."""
+        if "supabase" in self.config:
+            return SupabaseStorage(
+                url=self.config["supabase"]["url"], key=self.config["supabase"]["key"]
+            )
+        return JsonStorage()
 
 
 if __name__ == "__main__":
