@@ -14,3 +14,7 @@ config/config.yaml
 
 # Logs
 *.log 
+
+# Data
+data/ 
+.DS_Store
